@@ -9,7 +9,7 @@ import numpy as np
 def harmonic_mean_M(digits: Sequence[int]) -> int:
     """Harmonic average of the last two NIA digits, rounded to an integer.
 
-    Decide and document: rounding rule, what to do if a digit is 0.
+    Zero digits are replaced with 1 to avoid division by zero.
     """
     cleaned_digits = [d if d != 0 else 1 for d in digits]
     n = len(cleaned_digits)
@@ -19,11 +19,15 @@ def harmonic_mean_M(digits: Sequence[int]) -> int:
 
 def ln_omega(N: int, k: int) -> float:
     """ln Omega(N, k) with the log-gamma function (guidelines, Eq. 1)."""
+    if k < 0 or k > N:
+        raise ValueError(f"k must be between 0 and {N}, got {k}")
     return math.lgamma(N + 1) - math.lgamma(k + 1) - math.lgamma(N - k + 1)
 
 
 def prob(N: int, k: int) -> float:
     """P_k = Omega(N, k) / 2**N without overflow using log-space computation."""
+    if k < 0 or k > N:
+        raise ValueError(f"k must be in range [0, {N}], got {k}")
     ln_p = ln_omega(N, k) - N * math.log(2)
     return math.exp(ln_p)
 

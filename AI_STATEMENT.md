@@ -42,3 +42,24 @@ member can explain it.
 * **Output Summary:** Replaced pytest skips with active assertions testing log-space probability conversion, binomial symmetry, cumulative sum normalization, and zero-digit edge cases. Added input range check in `src/combinatorics.py`.
 * **Modifications Made by Team:** Integrated `pytest.raises(ValueError)` check for $k < 0$ and $k > N$.
 * **Verification:** `pytest` executed in terminal with all tests passing cleanly.
+<<<<<<< HEAD
+=======
+## Entry 5
+* **Date:** 2026-10-30
+* **Member:** Saulo
+* **Tool:** Gemini
+* **Purpose:** Extrapolating Sections 2e-2k (Entropy changes, waiting times, likelihood ratios, Gaussian approximation, and Large-N limit) into project modules.
+* **Prompt:** "Extrapolate thermodynamics code (2e-2k) into src/thermodynamics.py, tests/test_thermodynamics.py, main.py, and update AI_STATEMENT.md."
+* **Output Summary:** Implemented `delta_S_over_kB`, `expected_waiting_time`, `likelihood_ratio`, `gauss_prob`, and `large_N_summary`. Evaluated likelihood ratios for $M \pm 10$ ($53$ and $33$ heads) and validated Gaussian accuracy at $N=143$.
+* **Modifications Made by Team:** Handled log-space conversions for waiting time $t$ to avoid numerical overflow during $2^{143}$ calculations.
+* **Verification:** `pytest` executed with 100% passing tests for entropy maximality, inverse waiting time scaling, and Gaussian approximation accuracy.
+## Entry 6
+* **Date:** 2026-10-30
+* **Member:** Saulo
+* **Tool:** Gemini
+* **Purpose:** Extrapolating Sections 2e-2k (Entropy changes, waiting times, likelihood ratios, Gaussian approximation, and Large-N limit) into project modules.
+* **Prompt:** "Extrapolate thermodynamics code (2e-2k) into src/thermodynamics.py, tests/test_thermodynamics.py, main.py, and update AI_STATEMENT.md."
+* **Output Summary:** Implemented `delta_S_over_kB`, `expected_waiting_time`, `likelihood_ratio`, `gauss_prob`, and `large_N_summary`. Evaluated likelihood ratios for $M \pm 10$ ($53$ and $33$ heads) and validated Gaussian accuracy at $N=143$.
+* **Modifications Made by Team:** Handled log-space conversions for waiting time $t$ to avoid numerical overflow during $2^{143}$ calculations.
+* **Verification:** `pytest` executed with 100% passing tests for entropy maximality, inverse waiting time scaling, and Gaussian approximation accuracy.
+>>>>>>> eac8442 (Update combinatorics and thermodynamics modules and tests for N=138 baseline)
