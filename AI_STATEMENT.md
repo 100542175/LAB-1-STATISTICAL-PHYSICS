@@ -15,3 +15,30 @@ member can explain it.
 * **Problems found and how we resolved them:**
 * **Modifications made by the team:**
 * **Verification (tests, checks):**
+## Entry 2
+* **Date:** 2026-10-30
+* **Member:** Saulo
+* **Tool:** Gemini
+* **Purpose:** Prototyping probability calculations for Part 2a-2d and modularizing into project structure.
+* **Prompt:** "Generate code for probability calculations with team NIA digits [14, 75, 92, 99] and extrapolate to VS Code setup."
+* **Output Summary:** Calculated M=43 (harmonic mean of digits) and system size N=143. Computed P(k=30), P(k=N/2), and cumulative probabilities ΔP.
+* **Modifications Made by Team:** Modularized script into `src/combinatorics.py`, added wrapper `print_probability_report`, and linked default digits in `main.py`.
+* **Verification:** Unit tests written in `tests/test_combinatorics.py` checking system size calculation and normalization condition sum(P_k) = 1.
+## Entry 3
+* **Date:** 2026-10-30
+* **Member:** Saulo
+* **Tool:** Gemini
+* **Purpose:** Refactoring probability calculations into template signatures in `src/combinatorics.py`.
+* **Prompt:** "Adapt probability logic to pre-defined function stubs in combinatorics.py."
+* **Output Summary:** Implemented `harmonic_mean_M`, `ln_omega`, `prob`, `cumulative_prob`, `prob_array`, and `largest_N_with_float_omega`.
+* **Modifications Made by Team:** Integrated log-gamma calculation `math.lgamma` to avoid numerical overflow when computing $P_k$ for $N > 100$.
+* **Verification:** Unit tests written in `tests/test_combinatorics.py` verifying harmonic mean calculation and probability array normalization $\sum P_k = 1.0$.
+## Entry 4
+* **Date:** 2026-10-30
+* **Member:** Saulo
+* **Tool:** Gemini
+* **Purpose:** Writing pytest suite for `tests/test_combinatorics.py`.
+* **Prompt:** "Complete unit tests for combinatorics.py covering exact log-space match, symmetry, normalization, harmonic mean, and invalid input checks."
+* **Output Summary:** Replaced pytest skips with active assertions testing log-space probability conversion, binomial symmetry, cumulative sum normalization, and zero-digit edge cases. Added input range check in `src/combinatorics.py`.
+* **Modifications Made by Team:** Integrated `pytest.raises(ValueError)` check for $k < 0$ and $k > N$.
+* **Verification:** `pytest` executed in terminal with all tests passing cleanly.
