@@ -9,7 +9,7 @@ import argparse
 import sys
 from pathlib import Path
 
-# from src import combinatorics, microstates, thermodynamics, plots   # TODO: use them below
+from src import combinatorics, microstates
 
 
 def part1a(ctx):  # N = 7: list microstates by macrostate
@@ -33,7 +33,10 @@ def part1e(ctx):  # thermodynamic limit
 
 
 def part2_prob(ctx):  # items a)-d)
-    raise NotImplementedError
+    digits = ctx.get("digits", [14, 75, 92, 99])
+    combinatorics.print_probability_report(digits)
+
+
 
 
 def part2_entropy(ctx):  # items e)-g)
