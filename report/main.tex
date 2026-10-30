@@ -1,0 +1,65 @@
+% Lab 1 report skeleton. Replace every TODO. Body: ~5 pages (max 8) excluding title page.
+% Build:  latexmk -pdf main.tex     (inside report/)
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,graphicx,booktabs,listings,caption,float}
+\usepackage[hidelinks]{hyperref}
+\captionsetup{font=small,labelfont=bf}
+\lstset{basicstyle=\ttfamily\scriptsize,breaklines=true,frame=single,numbers=left,numberstyle=\tiny,language=Python}
+\newcommand{\kB}{k_{\mathrm B}}
+\newcommand{\Om}{\Omega}
+
+\title{TODO: title\\[2pt]\large Statistical Physics --- Laboratory Practice 1}
+\author{TODO Author 1 (NIA, GitHub) \and TODO Author 2 (NIA, GitHub)\\[4pt]
+Department of Physics, Universidad Carlos III de Madrid}
+\date{TODO: date}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+TODO (write last, ~5 sentences with your key numbers: N, largest enumerable N, one probability,
+one entropy change, the N$\to10^{23}$ conclusion). Repository: \url{https://github.com/TODO}.
+\end{abstract}
+
+\section{Introduction and objectives}
+% TODO: microstate, macrostate, Omega(N,k), 2^N, S = kB ln Omega, what you do in Parts 1 and 2.
+
+\section{Methodology}
+% TODO: environment, repository structure, enumeration algorithm (bitwise generator),
+% log-gamma formula, how you validated it (pytest), definition of M and N, how uncertainties are treated.
+
+\section{Part 1: computational analysis of microstates}
+\subsection{Enumeration for $N=7$}
+% TODO: table of macrostates with Omega(7,k) (and full listing in an appendix).
+\subsection{Largest $N$ with full enumeration}
+% TODO: time (mean +- std) and memory table, figure time vs N, explanation of the limiting factor.
+\subsection{Macrostate distributions for $N=20,50,80,100$}
+% TODO: one figure with the four distributions; axes labelled, units.
+\subsection{Largest $N$ for the distribution}
+% TODO: overflow limit of direct Omega, log-space behaviour, practical limit and why.
+\subsection{Thermodynamic limit}
+% TODO: Stirling, Gaussian, sigma/mu = 1/sqrt(N), discussion for N ~ 1e23.
+
+\section{Part 2: probabilities, entropy and thermodynamics}
+\subsection{Probabilities}
+% TODO: your M and N; P_30, P_{N/2}, cumulative probabilities (c, d); table with uncertainty.
+\subsection{Entropy changes}
+% TODO: items e, f, g in units of kB and J/K.
+\subsection{Thermodynamic implications}
+% TODO: h) waiting time, i) likelihood ratio (state your interpretation), j) Second Law.
+\subsection{Large-$N$ limit ($N\to10^{23}$)}
+% TODO: re-evaluate items a--j.
+
+\section{Conclusions}
+% TODO: 3--4 findings with numbers.
+
+\appendix
+\section{Code listings}
+% TODO: \lstinputlisting{../src/combinatorics.py}
+\section{AI collaboration statement}
+% TODO: summarise AI_STATEMENT.md.
+
+\end{document}
