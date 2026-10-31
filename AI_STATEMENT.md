@@ -43,7 +43,10 @@ member can explain it.
 * **Modifications Made by Team:** Integrated `pytest.raises(ValueError)` check for $k < 0$ and $k > N$.
 * **Verification:** `pytest` executed in terminal with all tests passing cleanly.
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> eac8442c06c856641389050e5b2e8f81d91d517a
 ## Entry 5
 * **Date:** 2026-10-30
 * **Member:** Saulo
@@ -61,5 +64,9 @@ member can explain it.
 * **Prompt:** "Extrapolate thermodynamics code (2e-2k) into src/thermodynamics.py, tests/test_thermodynamics.py, main.py, and update AI_STATEMENT.md."
 * **Output Summary:** Implemented `delta_S_over_kB`, `expected_waiting_time`, `likelihood_ratio`, `gauss_prob`, and `large_N_summary`. Evaluated likelihood ratios for $M \pm 10$ ($53$ and $33$ heads) and validated Gaussian accuracy at $N=143$.
 * **Modifications Made by Team:** Handled log-space conversions for waiting time $t$ to avoid numerical overflow during $2^{143}$ calculations.
+<<<<<<< HEAD
 * **Verification:** `pytest` executed with 100% passing tests for entropy maximality, inverse waiting time scaling, and Gaussian approximation accuracy.
 >>>>>>> eac8442 (Update combinatorics and thermodynamics modules and tests for N=138 baseline)
+=======
+* **Verification:** `pytest` executed with 100% passing tests for entropy maximality, inverse waiting time scaling, and Gaussian approximation accuracy.
+>>>>>>> eac8442c06c856641389050e5b2e8f81d91d517a
