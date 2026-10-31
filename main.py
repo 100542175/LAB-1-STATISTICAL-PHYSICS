@@ -5,17 +5,14 @@ import argparse
 import sys
 from pathlib import Path
 
-# Import modular packages from src/
-from src import combinatorics, microstates, thermodynamics
+from src import combinatorics, microstates, thermodynamics, plots
 
 
 def part1a(ctx):
-    """Part 1a: Microstate table for N = 7 coins."""
     microstates.print_n7_table()
 
 
 def part1b(ctx):
-    """Part 1b: Exact multiplicity & probability generation."""
     digits = ctx.get("digits", [14, 75, 92, 99])
     M = combinatorics.harmonic_mean_M(digits)
     N = 100 + M
@@ -23,39 +20,24 @@ def part1b(ctx):
 
 
 def part1c(ctx):
-    """Part 1c: Float overflow limit check."""
     max_n = combinatorics.largest_N_with_float_omega()
     print(f"[Part 1c] Largest N fitting in double float: N = {max_n}")
 
 
-def part1d(ctx):
-    pass
-
-
-def part1e(ctx):
-    pass
-
-
 def part2_prob(ctx):
-    """Items 2a-2d: Probability calculations for N = 100 + M."""
     digits = ctx.get("digits", [14, 75, 92, 99])
     combinatorics.print_probability_report(digits)
 
 
 def part2_entropy(ctx):
-    """Items 2e-2k: Thermodynamics, entropy, waiting times, and Large-N limit."""
     digits = ctx.get("digits", [14, 75, 92, 99])
     thermodynamics.print_thermodynamics_report(digits)
 
 
-def part2_implications(ctx):
-    """Items 2h-2j: Handled inside print_thermodynamics_report."""
-    pass
-
-
-def part2_large_n(ctx):
-    """Item 2k: Handled inside print_thermodynamics_report."""
-    pass
+def part3_plots(ctx):
+    digits = ctx.get("digits", [14, 75, 92, 99])
+    out_dir = ctx.get("out", Path("report/figures"))
+    plots.generate_all_figures(digits, out_dir)
 
 
 SECTIONS = [
@@ -64,6 +46,7 @@ SECTIONS = [
     part1c,
     part2_prob,
     part2_entropy,
+    part3_plots,
 ]
 
 
@@ -76,7 +59,7 @@ def main() -> int:
         default=[14, 75, 92, 99],
         help="last two digits of each team member's NIA",
     )
-    ap.add_argument("--out", type=Path, default=Path("report"))
+    ap.add_argument("--out", type=Path, default=Path("report/figures"))
     args = ap.parse_args()
     ctx = {"digits": args.digits, "out": args.out}
 

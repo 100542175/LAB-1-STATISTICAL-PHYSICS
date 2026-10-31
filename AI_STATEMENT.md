@@ -70,3 +70,12 @@ member can explain it.
 =======
 * **Verification:** `pytest` executed with 100% passing tests for entropy maximality, inverse waiting time scaling, and Gaussian approximation accuracy.
 >>>>>>> eac8442c06c856641389050e5b2e8f81d91d517a
+## Entry 7
+* **Date:** 2026-10-31
+* **Member:** Saulo
+* **Tool:** Gemini
+* **Purpose:** Code optimization and mathematical rigor enhancement.
+* **Prompt:** "Optimize src/combinatorics.py and src/thermodynamics.py for mathematical rigor, numerical stability at large N (preventing float overflow and precision loss), vectorization, and thorough edge-case unit testing."
+* **Output Summary:** Enhanced `src/combinatorics.py` with vectorized NumPy array evaluation (`prob_array`) and `scipy.special.gammaln`. Updated `src/thermodynamics.py` with overflow-safe logarithmic waiting times (`log10_waiting_time`), double-precision small-k combinatorics (`ln_omega_small_k`), and double-reading support for Item 2i ($N/2 \pm 10$ and $M \pm 10$). Expanded `test_combinatorics.py` and `test_thermodynamics.py` with relative tolerance assertions (`rel=1e-10`).
+* **Modifications Made by Team:** The implementation was made possible through AI consultation focused on numerical edge cases and fixed-precision stability, but it was not used to replace the baseline structural design originally produced by the team. Verified that all dynamic calculations correctly process team digits $[14, 75, 92, 99]$ ($M = 38$, $N = 138$).
+* **Verification:** `python -m pytest` executed with 100% test pass rate across all combinatorics and thermodynamics suites.
