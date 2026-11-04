@@ -9,8 +9,6 @@ Policy: AI output is a draft; every AI-generated function is covered by unit tes
 * **Modifications made by the team:**
 * **Verification (tests, checks):**
 ## Entry 2
-* **Date:** 2026-10-30
-* **Member:** Saulo
 * **Tool:** Gemini
 * **Purpose:** Prototyping probability calculations for Part 2a-2d and modularizing into project structure.
 * **Prompt:** "Generate code for probability calculations with team NIA digits [14, 75, 92, 99] and extrapolate to VS Code setup."
@@ -18,8 +16,6 @@ Policy: AI output is a draft; every AI-generated function is covered by unit tes
 * **Modifications Made by Team:** Modularized script into `src/combinatorics.py`, added wrapper `print_probability_report`, and linked default digits in `main.py`.
 * **Verification:** Unit tests written in `tests/test_combinatorics.py` checking system size calculation and normalization condition sum(P_k) = 1.
 ## Entry 3
-* **Date:** 2026-10-30
-* **Member:** Saulo
 * **Tool:** Gemini
 * **Purpose:** Refactoring probability calculations into template signatures in `src/combinatorics.py`.
 * **Prompt:** "Adapt probability logic to pre-defined function stubs in combinatorics.py."
@@ -27,8 +23,6 @@ Policy: AI output is a draft; every AI-generated function is covered by unit tes
 * **Modifications Made by Team:** Integrated log-gamma calculation `math.lgamma` to avoid numerical overflow when computing $P_k$ for $N > 100$.
 * **Verification:** Unit tests written in `tests/test_combinatorics.py` verifying harmonic mean calculation and probability array normalization $\sum P_k = 1.0$.
 ## Entry 4
-* **Date:** 2026-10-30
-* **Member:** Saulo
 * **Tool:** Gemini
 * **Purpose:** Writing pytest suite for `tests/test_combinatorics.py`.
 * **Prompt:** "Complete unit tests for combinatorics.py covering exact log-space match, symmetry, normalization, harmonic mean, and invalid input checks."
@@ -41,8 +35,6 @@ Policy: AI output is a draft; every AI-generated function is covered by unit tes
 =======
 >>>>>>> eac8442c06c856641389050e5b2e8f81d91d517a
 ## Entry 5
-* **Date:** 2026-10-30
-* **Member:** Saulo
 * **Tool:** Gemini
 * **Purpose:** Extrapolating Sections 2e-2k (Entropy changes, waiting times, likelihood ratios, Gaussian approximation, and Large-N limit) into project modules.
 * **Prompt:** "Extrapolate thermodynamics code (2e-2k) into src/thermodynamics.py, tests/test_thermodynamics.py, main.py, and update AI_STATEMENT.md."
@@ -50,8 +42,6 @@ Policy: AI output is a draft; every AI-generated function is covered by unit tes
 * **Modifications Made by Team:** Handled log-space conversions for waiting time $t$ to avoid numerical overflow during $2^{143}$ calculations.
 * **Verification:** `pytest` executed with 100% passing tests for entropy maximality, inverse waiting time scaling, and Gaussian approximation accuracy.
 ## Entry 6
-* **Date:** 2026-10-30
-* **Member:** Saulo
 * **Tool:** Gemini
 * **Purpose:** Extrapolating Sections 2e-2k (Entropy changes, waiting times, likelihood ratios, Gaussian approximation, and Large-N limit) into project modules.
 * **Prompt:** "Extrapolate thermodynamics code (2e-2k) into src/thermodynamics.py, tests/test_thermodynamics.py, main.py, and update AI_STATEMENT.md."
@@ -64,11 +54,30 @@ Policy: AI output is a draft; every AI-generated function is covered by unit tes
 * **Verification:** `pytest` executed with 100% passing tests for entropy maximality, inverse waiting time scaling, and Gaussian approximation accuracy.
 >>>>>>> eac8442c06c856641389050e5b2e8f81d91d517a
 ## Entry 7
-* **Date:** 2026-10-31
-* **Member:** Saulo
 * **Tool:** Gemini
 * **Purpose:** Code optimization and mathematical rigor enhancement.
 * **Prompt:** "Optimize src/combinatorics.py and src/thermodynamics.py for mathematical rigor, numerical stability at large N (preventing float overflow and precision loss), vectorization, and thorough edge-case unit testing."
 * **Output Summary:** Enhanced `src/combinatorics.py` with vectorized NumPy array evaluation (`prob_array`) and `scipy.special.gammaln`. Updated `src/thermodynamics.py` with overflow-safe logarithmic waiting times (`log10_waiting_time`), double-precision small-k combinatorics (`ln_omega_small_k`), and double-reading support for Item 2i ($N/2 \pm 10$ and $M \pm 10$). Expanded `test_combinatorics.py` and `test_thermodynamics.py` with relative tolerance assertions (`rel=1e-10`).
 * **Modifications Made by Team:** The implementation was made possible through AI consultation focused on numerical edge cases and fixed-precision stability, but it was not used to replace the baseline structural design originally produced by the team. Verified that all dynamic calculations correctly process team digits $[14, 75, 92, 99]$ ($M = 38$, $N = 138$).
 * **Verification:** `python -m pytest` executed with 100% test pass rate across all combinatorics and thermodynamics suites.
+* ## Entry 8
+* **Tool:** GitHub Copilot (v1.57, IDE Extension)
+* **Purpose:** To accelerate code writing, complete repetitive bitwise loops, and format integer-to-string conversions within the microstate enumeration module.
+* **Prompt/Interaction:**  Used real-time inline autocomplete suggestions during the writing of src/microstates.py and src/combinatorics.py for function implementations like bitwise shifting (1 << N) and bit counting (s.bit_count()).
+* **Verification & Contribution:** All inline suggestions were manually reviewed, tested against theoretical binomial expectations, and verified through unit testing in tests/test_microstates.py.
+## Entry 9
+* **Tool:** GitHub Copilot (v1.57, IDE Extension)
+* **Purpose:** To establish a standardized Python package layout and generate initial boilerplate module entry points across the repository.
+* **Prompt/Interaction:** Promoted autocomplete suggestions when creating folder structures (src/, tests/, report/figures/), generating package initialization files (__init__.py), and writing command-line argument parsing in main.py.
+* **Verification & Contribution:** The team adjusted the file paths to match the assignment guidelines and verified execution pathways using python -m pytest.
+## Entry 10
+* **Tool:** GitHub Copilot (v1.57, IDE Extension)
+* **Purpose:** To optimize memory usage during high-$N$ microstate enumeration and reduce peak RAM footprint.
+* **Prompt/Interaction:** Utilized Copilot inline recommendations to replace standard list allocations with Python memory-efficient generators (yield) and integrate tracemalloc for peak byte measuring.
+* **Verification & Contribution:** The team conducted benchmark runs comparing list storage versus generator yields, confirming memory savings empirically in results.json (presented in the VS code)
+* ## Entry 11
+* **Tool:** Google Gemini
+* **Purpose:** To resolve project architecture conflicts, extrapolate code implementations to match expected lab template function signatures, and assist with git branch synchronization.
+* **Prompt/Interaction:** "I have existing code for Part 1 microstates and Part 2 thermodynamics from my teammates. How do I extrapolate and refactor their code to fit our modular src/ layout, pass pytest without path import errors, and handle git branch conflicts on the tests branch?"
+* **Verification & Contribution:** The team integrated the extrapolated functions into src/microstates.py and main.py, ran local pytest checks to confirm 100% test coverage, and verified that generated output artifacts (results.json and figures) aligned with theoretical statistical mechanics predictions.
+
