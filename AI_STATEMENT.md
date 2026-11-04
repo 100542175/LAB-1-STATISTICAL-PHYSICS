@@ -1,13 +1,6 @@
 # AI collaboration statement
 
-Team: <names>
-
-Policy: AI output is a draft; every AI-generated function is covered by unit tests and every
-member can explain it.
-
-| # | Date | Member | Tool | Purpose |
-|---|---|---|---|---|
-| 1 |  |  |  |  |
+Policy: AI output is a draft; every AI-generated function is covered by unit tests and the member responsible of it can defend it.
 
 ## Entry 1
 * **Prompt:**
