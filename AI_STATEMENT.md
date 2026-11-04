@@ -60,7 +60,7 @@ Policy: AI output is a draft; every AI-generated function is covered by unit tes
 * **Output Summary:** Enhanced `src/combinatorics.py` with vectorized NumPy array evaluation (`prob_array`) and `scipy.special.gammaln`. Updated `src/thermodynamics.py` with overflow-safe logarithmic waiting times (`log10_waiting_time`), double-precision small-k combinatorics (`ln_omega_small_k`), and double-reading support for Item 2i ($N/2 \pm 10$ and $M \pm 10$). Expanded `test_combinatorics.py` and `test_thermodynamics.py` with relative tolerance assertions (`rel=1e-10`).
 * **Modifications Made by Team:** The implementation was made possible through AI consultation focused on numerical edge cases and fixed-precision stability, but it was not used to replace the baseline structural design originally produced by the team. Verified that all dynamic calculations correctly process team digits $[14, 75, 92, 99]$ ($M = 38$, $N = 138$).
 * **Verification:** `python -m pytest` executed with 100% test pass rate across all combinatorics and thermodynamics suites.
-* ## Entry 8
+## Entry 8
 * **Tool:** GitHub Copilot (v1.57, IDE Extension)
 * **Purpose:** To accelerate code writing, complete repetitive bitwise loops, and format integer-to-string conversions within the microstate enumeration module.
 * **Prompt/Interaction:**  Used real-time inline autocomplete suggestions during the writing of src/microstates.py and src/combinatorics.py for function implementations like bitwise shifting (1 << N) and bit counting (s.bit_count()).
@@ -75,7 +75,7 @@ Policy: AI output is a draft; every AI-generated function is covered by unit tes
 * **Purpose:** To optimize memory usage during high-$N$ microstate enumeration and reduce peak RAM footprint.
 * **Prompt/Interaction:** Utilized Copilot inline recommendations to replace standard list allocations with Python memory-efficient generators (yield) and integrate tracemalloc for peak byte measuring.
 * **Verification & Contribution:** The team conducted benchmark runs comparing list storage versus generator yields, confirming memory savings empirically in results.json (presented in the VS code)
-* ## Entry 11
+## Entry 11
 * **Tool:** Google Gemini
 * **Purpose:** To resolve project architecture conflicts, extrapolate code implementations to match expected lab template function signatures, and assist with git branch synchronization.
 * **Prompt/Interaction:** "I have existing code for Part 1 microstates and Part 2 thermodynamics from my teammates. How do I extrapolate and refactor their code to fit our modular src/ layout, pass pytest without path import errors, and handle git branch conflicts on the tests branch?"
